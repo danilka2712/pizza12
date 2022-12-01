@@ -1,6 +1,4 @@
 <script>
-	import { page } from '$app/stores';
-	const buildDate = __DATE__
 	const productsSushi = [
 		{ id: 1, name: 'Суши' },
 		{ id: 2, name: 'Пицца' },

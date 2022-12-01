@@ -1,21 +1,8 @@
 <script lang="ts">
-	import Header from '$lib/header/Header.svelte';
 	import '../app.css';
-	import { onMount } from 'svelte';
-	import { pwaInfo } from 'virtual:pwa-info';
-	import Slider from '$lib/Slider.svelte';
+	
 
-	let ReloadPrompt: any;
-	onMount(async () => {
-		pwaInfo && (ReloadPrompt = (await import('$lib/ReloadPrompt.svelte')).default);
-	});
-
-	$: webManifest = pwaInfo ? pwaInfo.webManifest.linkTag : '';
 </script>
-
-<svelte:head>
-	{@html webManifest}
-</svelte:head>
 
 <div class="fixed w-full top-0  pb-5 ">
 	<div class="border-b  bg-[#1b1b1b] px-3 border-[#333333]">
@@ -78,11 +65,6 @@
 		</section>
 	</div>
 </div>
-<Slider />
 <main>
 	<slot />
 </main>
-
-{#if ReloadPrompt}
-	<svelte:component this={ReloadPrompt} />
-{/if}
